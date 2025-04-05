@@ -2,8 +2,11 @@ import React, { useState } from 'react';
 import SalaryForm from './presentation/components/SalaryForm';
 import SalaryDisplay from './presentation/components/SalaryDisplay';
 import { Salary } from './domain/entities/Salary';
+import { useTranslation } from 'react-i18next';
+import LanguageSwitcher from './presentation/components/LanguageSwitcher';
 
 const App: React.FC = () => {
+  const { t } = useTranslation();
   const [salary, setSalary] = useState<Salary | null>(null);
 
   const handleCalculation = (calculatedSalary: Salary) => {
@@ -12,7 +15,8 @@ const App: React.FC = () => {
 
   return (
     <div>
-      <h1>Cálcule aqui o teu salário líquido, saiba qual é o valor a pagar para Segurança Social e o Imposto de Rendimento de Trabalho (IRS)</h1>
+      <LanguageSwitcher />
+      <h1>{t('welcome')}</h1>
       <SalaryForm onCalculate={handleCalculation} />
       {salary && <SalaryDisplay salary={salary} />}
     </div>
