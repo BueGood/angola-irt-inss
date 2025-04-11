@@ -7,7 +7,7 @@ import { calculateNetSalary } from '../../infrastructure/utils/salaryCalculator'
 export class CalculateSalary {
   execute(baseSalary: number, index: number): Salary {
     const grossSalary = calculateGrossSalary(baseSalary, index);
-    const socialSecurity = calculateSocialSecurity(grossSalary);
+    const socialSecurity = calculateSocialSecurity(baseSalary);
     const irt = calculateIRT(grossSalary);
     const netSalary = calculateNetSalary(grossSalary, socialSecurity, irt);
 
