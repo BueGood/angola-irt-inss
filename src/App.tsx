@@ -14,11 +14,13 @@ const App: React.FC = () => {
   };
 
   return (
-    <div>
-      <LanguageSwitcher />
-      <h1>{t('welcome')}</h1>
-      <SalaryForm onCalculate={handleCalculation} />
-      {salary && <SalaryDisplay salary={salary} />}
+    <div className="min-h-screen bg-gray-50 p-4">
+      <div className="max-w-3xl mx-auto">
+        <LanguageSwitcher />
+        <h1 className="text-3xl font-bold mb-6 text-center text-blue-700">{t('welcome')}</h1>
+        <SalaryForm onCalculate={handleCalculation} />
+        {salary && <SalaryDisplay salary={salary} />}
+      </div>
     </div>
   );
 };

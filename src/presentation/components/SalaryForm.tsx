@@ -22,31 +22,41 @@ const SalaryForm: React.FC<SalaryFormProps> = ({ onCalculate }) => {
     };
 
     return (
-        <form onSubmit={handleSubmit}>
-            <div>
-                <label>
+        <form
+            onSubmit={handleSubmit}
+            className="bg-white p-6 rounded shadow-md w-full max-w-md mx-auto mb-6"
+        >
+            <div className="mb-4">
+                <label className="block text-sm font-medium text-gray-700 mb-1">
                     {t('baseSalary')}:
-                    <input
-                        type="number"
-                        value={baseSalary}
-                        onChange={(e) => setBaseSalary(Number(e.target.value))}
-                        required
-                    />
                 </label>
+                <input
+                    type="number"
+                    value={baseSalary}
+                    onChange={(e) => setBaseSalary(Number(e.target.value))}
+                    required
+                    className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring focus:ring-blue-300"
+                />
             </div>
-            <div>
-                <label>
+            <div className="mb-4">
+                <label className="block text-sm font-medium text-gray-700 mb-1">
                     {t('index')}:
-                    <input
-                        type="number"
-                        value={index}
-                        onChange={(e) => setIndex(Number(e.target.value))}
-                        min="1"
-                        required
-                    />
                 </label>
+                <input
+                    type="number"
+                    value={index}
+                    onChange={(e) => setIndex(Number(e.target.value))}
+                    min="1"
+                    required
+                    className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring focus:ring-blue-300"
+                />
             </div>
-            <button type="submit">{t('calculate')}</button>
+            <button
+                type="submit"
+                className="w-full bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 transition"
+            >
+                {t('calculate')}
+            </button>
         </form>
     );
 };
